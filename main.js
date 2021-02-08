@@ -2,8 +2,9 @@ new Vue({
  el: '#app',
  data:{
    disks:[],
-
-   selected:''
+   visible:false,
+   selected:'',
+   activeIndex: 0,
  },
  mounted(){
    const self = this;
@@ -16,7 +17,13 @@ new Vue({
    },
 
    methods:{
+    filterByGenre:function(){
+      return this.disks.filter((element)=>{
+        console.log(this.disks[this.activeIndex].genre)
+        return element.genre[this.activeIndex].match(this.selected);
 
+      })
+    }
    },
 
 });
