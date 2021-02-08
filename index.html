@@ -16,18 +16,21 @@
                 <img src="logo.png" alt="logo" />
             </div>
         </header>
-
+        <select v-model="selected" class="">
+          <option value="">POP</option>
+          <option value="">ROCK</option>
+          <option value="">METAL</option>
+          <option value="">JAZZ</option>
+        </select>
+        
+        <span>Selected: {{selected}}</span>
         <div class="cds-container container">
             <!-- Disco ad esempio -->
             <div class="cd" v-for="dischi in disks">
-                <!-- <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Ten_Summoner%27s_Tales.jpg" alt="">
-                <h3>Ten's Summoners Tales</h3>
-                <span class="author">Sting</span>
-                <span class="year">1993</span> -->
-                <img :src="dischi.poster" alt="">
-                <span>{{dischi.title}}</span>
-                <span>{{dischi.author}}</span>
-                <span>{{dischi.year}}</span>
+              <img :src="dischi.poster" alt="">
+              <h3>{{dischi.title}}</h3>
+              <span class="author">{{dischi.author}}</span>
+              <span class="year">{{dischi.year}}</span>
             </div>
         </div>
       </div>

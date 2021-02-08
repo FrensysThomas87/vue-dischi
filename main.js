@@ -3,6 +3,7 @@ new Vue({
  data:{
    disks:[],
 
+   selected:''
  },
  mounted(){
    const self = this;
@@ -10,11 +11,13 @@ new Vue({
      axios.get('https://flynn.boolean.careers/exercises/api/array/music')
      .then(function(resp){
        self.disks = resp.data.response;
-       console.log('Dischi ', self.disks);
+
      });
+   },
 
+   methods:{
 
+   },
 
- }
 });
 Vue.config.devtools = true;
