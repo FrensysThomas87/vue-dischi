@@ -2,9 +2,8 @@ new Vue({
  el: '#app',
  data:{
    disks:[],
-   visible:true,
    selected:'',
-   activeIndex: 0,
+
  },
  mounted(){
    const self = this;
@@ -16,19 +15,19 @@ new Vue({
      });
    },
 
-   methods:{
-     filterByGenere:function(){
-       this.disks.forEach((element) => {
-         if(element.genre.toLowerCase().includes(this.selected.toLowerCase())){
-           this.visible = true;
-         }else{
-           this.visible = false;
-         }
-       });
-     }
-
-
-   },
+   // methods:{ // non funziona
+   //   filterByGenere:function(){
+   //     this.disks.forEach((element) => {
+   //       if(element.genre.toLowerCase() === this.selected.toLowerCase()){
+   //         this.visible = true;
+   //       }else{
+   //         this.visible = false;
+   //       }
+   //     });
+   //   }
+   //
+   //
+   // },
 
 });
 Vue.config.devtools = true;
