@@ -2,7 +2,7 @@ new Vue({
  el: '#app',
  data:{
    disks:[],
-   visible:false,
+   visible:true,
    selected:'',
    activeIndex: 0,
  },
@@ -17,13 +17,17 @@ new Vue({
    },
 
    methods:{
-    filterByGenre:function(){
-      return this.disks.filter((element)=>{
-        console.log(this.disks[this.activeIndex].genre)
-        return element.genre[this.activeIndex].match(this.selected);
+     filterByGenere:function(){
+       this.disks.forEach((element) => {
+         if(element.genre.toLowerCase().includes(this.selected.toLowerCase())){
+           this.visible = true;
+         }else{
+           this.visible = false;
+         }
+       });
+     }
 
-      })
-    }
+
    },
 
 });

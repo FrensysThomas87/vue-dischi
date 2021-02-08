@@ -26,7 +26,7 @@
         <span>Selected: {{selected}}</span>
         <div class="cds-container container">
             <!-- Disco ad esempio -->
-            <div class="cd" v-for="(dischi, i) in filterByGenre()">
+            <div class="cd" v-for="dischi in disks" v-if="dischi.genre.toLowerCase() === selected.toLowerCase() || selected === ''">
               <img :src="dischi.poster" alt="">
               <h3>{{dischi.title}}</h3>
               <span class="author">{{dischi.author}}</span>
