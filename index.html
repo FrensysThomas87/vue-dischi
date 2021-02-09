@@ -16,11 +16,10 @@
                 <img src="logo.png" alt="logo" />
             </div>
         </header>
-        <select v-model="selected" class="">
+        <select v-model="selected" >
           <option value="">ALL</option>
-          <option value="rock">ROCK</option>
-          <option value="metal">METAL</option>
-          <option value="jazz">JAZZ</option>
+          <option v-for="typeMusic in musicGenre">{{typeMusic}}</option>
+
         </select>
 
 

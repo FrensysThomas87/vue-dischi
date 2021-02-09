@@ -31,6 +31,7 @@ new Vue({
    axios.get('https://flynn.boolean.careers/exercises/api/array/music')
      .then(function(resp){
        self.disks = resp.data.response;
+       self.fillSelect();
      });
 
 
