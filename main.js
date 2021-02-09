@@ -3,31 +3,40 @@ new Vue({
  data:{
    disks:[],
    selected:'',
+   musicGenre:[],
 
  },
+
+ methods:{
+   filterByGenere:function(dischi){
+     return dischi.genre.toLowerCase() === this.selected.toLowerCase() || this.selected === '';
+   },
+
+   fillSelect:function(){
+     this.disks.forEach((element) => {
+       if(!this.musicGenre.includes(element.genre)){
+         this.musicGenre.push(element.genre);
+
+       }
+
+     });
+   }
+
+ },
+
+
  mounted(){
    const self = this;
 
-     axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+   axios.get('https://flynn.boolean.careers/exercises/api/array/music')
      .then(function(resp){
        self.disks = resp.data.response;
-
      });
+
+
    },
 
-   // methods:{ // non funziona
-   //   filterByGenere:function(){
-   //     this.disks.forEach((element) => {
-   //       if(element.genre.toLowerCase() === this.selected.toLowerCase()){
-   //         this.visible = true;
-   //       }else{
-   //         this.visible = false;
-   //       }
-   //     });
-   //   }
-   //
-   //
-   // },
+
 
 });
 Vue.config.devtools = true;

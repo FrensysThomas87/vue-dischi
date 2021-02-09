@@ -16,18 +16,18 @@
                 <img src="logo.png" alt="logo" />
             </div>
         </header>
-        <select v-model="selected" class="" @change="filterByGenere()">
-          <option value="pop">POP</option>
+        <select v-model="selected" class="">
+          <option value="">ALL</option>
           <option value="rock">ROCK</option>
           <option value="metal">METAL</option>
           <option value="jazz">JAZZ</option>
         </select>
-        
-        <span>Selected: {{selected}}</span>
+
+
         <div class="cds-container container">
             <!-- Disco ad esempio -->
-            <div class="cd" v-for="dischi in disks" 
-            v-if="dischi.genre.toLowerCase() === selected.toLowerCase() || selected === ''">
+            <div class="cd" v-for="dischi in disks"
+            v-if="filterByGenere(dischi)">
               <img :src="dischi.poster" alt="">
               <h3>{{dischi.title}}</h3>
               <span class="author">{{dischi.author}}</span>
@@ -35,8 +35,8 @@
             </div>
         </div>
       </div>
-    
-        
+
+
 
         <script src="main.js" charset="utf-8"></script>
     </body>
